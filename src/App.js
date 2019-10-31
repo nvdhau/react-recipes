@@ -1,10 +1,13 @@
 import React from "react";
+import Logo from "./static/images/logo.png";
 
-class App extends React.Component{
-    render(){
-        return (
-            <h1>Hello world!</h1>
-        );
-    }
-}
+console.log(Logo)
+
+const App = () => (
+    <div>
+        <h1>Hello world!</h1>
+        <img src={Logo} />
+    </div>
+);
+
 export default App
