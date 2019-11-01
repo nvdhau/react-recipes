@@ -1,6 +1,7 @@
 import React  from "react";
 import ReactDOM from "react-dom";
 import App from './components/App';
+import './styles/index.css';//to available for webpack
 
 const MOUNT_ELEMENT = document.getElementById('root');
 
