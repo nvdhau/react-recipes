@@ -32,10 +32,11 @@ class App extends React.Component{
     render(){
         const {recipes, currentRecipe} = this.state;//get recipes from state
 
+        //px4: padding lefd and right
         return (
         <div>
             <Header />
-            <main style={{display: 'flex'}}>
+            <main className="px4 flex">
                 <RecipeList 
                     recipes={recipes} 
                     style={{flex:3}}
@@ -43,6 +44,7 @@ class App extends React.Component{
                 />
                 <RecipeDetail 
                     recipe={currentRecipe}
+                    className="ml4"
                     style={{flex:5}}/>
             </main>
         </div>

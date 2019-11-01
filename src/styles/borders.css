@@ -1,0 +1,7 @@
+/* user defined style
+    then add to index.css
+*/
+
+.border-bottom-dashed{
+    border-bottom-style: dashed;
+}

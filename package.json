@@ -16,6 +16,7 @@
     "basscss": "^8.1.0",
     "basscss-background-colors": "^2.1.0",
     "basscss-colors": "^2.2.0",
+    "classnames": "^2.2.6",
     "css-loader": "^3.2.0",
     "dotenv": "^8.2.0",
     "file-loader": "^4.2.0",
