@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 //py: padding bot and top
 const RecipeList = (props) => (
@@ -18,5 +19,10 @@ const RecipeList = (props) => (
         </ul>
     </div>
 )
+
+RecipeList.propTypes = {
+    style: PropTypes.object,
+    recipe: PropTypes.object
+}
 
 export default RecipeList;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 
 const RecipeDetail = (props) => {
@@ -38,5 +39,11 @@ const RecipeDetail = (props) => {
         </div>
     )
 };
+
+RecipeDetail.propTypes = {
+    style: PropTypes.object,
+    className: PropTypes.string,
+    recipe: PropTypes.object
+}
 
 export default RecipeDetail;
