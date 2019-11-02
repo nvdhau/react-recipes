@@ -30,6 +30,7 @@ class App extends React.Component {
   render() {
     const { recipes, currentRecipe } = this.state; //get recipes from state
 
+    console.log("added git hook ...");
     //px4: padding lefd and right
     return (
       <div>
