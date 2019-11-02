@@ -10,7 +10,7 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.js":[
+    "*.js": [
       "yarn lint",
       "prettier --write",
       "git add"
@@ -49,6 +49,7 @@
   "dependencies": {
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2",
     "whatwg-fetch": "^3.0.0"
   }
 }
