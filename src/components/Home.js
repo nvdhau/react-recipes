@@ -13,7 +13,7 @@ class Home extends React.Component {
     };
 
     //bind the onRecipeClick to this object
-    this.onRecipeClick = this.onRecipeClick.bind(this);
+    //this.onRecipeClick = this.onRecipeClick.bind(this);
   }
 
   componentDidMount() {
@@ -51,7 +51,8 @@ class Home extends React.Component {
     );
   }
 
-  onRecipeClick(id) {
+  //using arrow function, do not need to bind
+  onRecipeClick = id => {
     console.log(id);
     fetch(`${API_URL}/v1/recipes/${id}`)
       .then(res => res.json())
@@ -60,7 +61,7 @@ class Home extends React.Component {
           currentRecipe: json
         });
       });
-  }
+  };
 }
 
 export default Home;
