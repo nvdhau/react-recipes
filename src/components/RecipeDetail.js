@@ -28,16 +28,20 @@ const RecipeDetail = ({ recipe, style, className }) => {
       </div>
       <h3>Ingredients</h3>
       <ul>
-        {recipe.ingredients.map(ingredient => (
-          <li key={ingredient}>{ingredient}</li>
-        ))}
+        {recipe.ingredients &&
+          recipe.ingredients.map(ingredient => (
+            <li key={ingredient}>{ingredient}</li>
+          ))}
       </ul>
       <h3>Steps</h3>
-      <ol>
-        {recipe.steps.map(step => (
-          <li key={step}>{step}</li>
-        ))}
-      </ol>
+      {/* RENDER IF STEPS EXIST */}
+      {recipe.steps && (
+        <ol>
+          {recipe.steps.map(step => (
+            <li key={step}>{step}</li>
+          ))}
+        </ol>
+      )}
       <Link to={`/recipe/${recipe.id}`}>See more</Link>
     </div>
   );

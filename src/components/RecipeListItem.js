@@ -32,4 +32,8 @@ RecipeListItem.propTypes = {
   favorited: PropTypes.bool,
 };
 
+RecipeListItem.defaultProps = {
+  recipe: {},
+};
+
 export default RecipeListItem;
