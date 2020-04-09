@@ -11,12 +11,14 @@ require('dotenv').config();
 // API_URL availble to use in /src
 // exclude: /node_modules/ => Babel skips this folder
 // devServer: { historyApiFallback: true, },: fallback to index.html when URL is not defined
+// publicPath: '/': to fix ROOT/recipe/2 because the bundle.js is at ROOT/bundle.js
 module.exports = {
   context: path.join(__dirname, 'src'),
   entry: ['whatwg-fetch', './index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: './bundle.js',
+    publicPath: '/',
   },
   module: {
     rules: [
