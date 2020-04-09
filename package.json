@@ -8,6 +8,7 @@
     "start": "./node_modules/.bin/webpack-dev-server",
     "build": "./node_modules/.bin/webpack",
     "lint": "./node_modules/.bin/eslint ./src",
+    "test": "./node_modules/.bin/jest",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -34,11 +35,13 @@
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.0.9",
+    "jest": "^25.3.0",
     "lint-staged": "^9.4.2",
     "postcss": "^7.0.21",
     "postcss-loader": "^3.0.0",
@@ -51,9 +54,9 @@
   "dependencies": {
     "@babel/preset-stage-0": "^7.8.3",
     "classnames": "^2.2.6",
-    "prop-types": "^15.7.2",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^12.0.1",
+    "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
