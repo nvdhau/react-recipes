@@ -12,23 +12,19 @@ const RecipeList = ({
   favorites,
   ...props // = [1]
 }) => (
-  <div style={style}>
-    <h2 className="h2">Recipes</h2>
-
-    <ul className="list-reset">
-      {recipes.map(recipe => (
-        <RecipeListItem
-          key={recipe.id}
-          favorited={favorites.includes(recipe.id)}
-          recipe={recipe}
-          // [1]
-          // onClick={onClick}
-          // onFavorited={onFavorited}
-          {...props}
-        />
-      ))}
-    </ul>
-  </div>
+  <ul className="list-reset">
+    {recipes.map(recipe => (
+      <RecipeListItem
+        key={recipe.id}
+        favorited={favorites.includes(recipe.id)}
+        recipe={recipe}
+        // [1]
+        // onClick={onClick}
+        // onFavorited={onFavorited}
+        {...props}
+      />
+    ))}
+  </ul>
 );
 
 RecipeList.propTypes = {

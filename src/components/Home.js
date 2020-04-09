@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // import Header from "./Header";
 import RecipeList from './RecipeList';
 import RecipeDetail from './RecipeDetail';
@@ -7,9 +8,10 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
 
+    // [2] in order to share these state between Home and Favorite => move these state to App
     this.state = {
-      recipes: [],
-      favorites: [],
+      // recipes: [],
+      // favorites: [],
       currentRecipe: null,
     };
 
@@ -17,16 +19,17 @@ class Home extends React.Component {
     // this.onRecipeClick = this.onRecipeClick.bind(this);
   }
 
-  componentDidMount() {
-    // API_URL config with webpack and .env
-    fetch(`${API_URL}/v1/recipes`)
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-          recipes: json,
-        });
-      });
-  }
+  // [2]
+  // componentDidMount() {
+  //   // API_URL config with webpack and .env
+  //   fetch(`${API_URL}/v1/recipes`)
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       this.setState({
+  //         recipes: json,
+  //       });
+  //     });
+  // }
 
   // using arrow function, do not need to bind
   onRecipeClick = id => {
@@ -40,43 +43,52 @@ class Home extends React.Component {
       });
   };
 
-  toggleFavorite = id => {
-    this.setState(({ favorites, ...state }) => {
-      const idx = favorites.indexOf(id);
+  // [2]
+  // toggleFavorite = id => {
+  //   this.setState(({ favorites, ...state }) => {
+  //     const idx = favorites.indexOf(id);
 
-      if (idx !== -1) {
-        return {
-          // clone old state
-          ...state,
-          // override favorites by removing id
-          favorites: favorites.filter(f => f !== id),
-        };
-      }
+  //     if (idx !== -1) {
+  //       return {
+  //         // clone old state
+  //         ...state,
+  //         // override favorites by removing id
+  //         favorites: favorites.filter(f => f !== id),
+  //       };
+  //     }
 
-      return {
-        // clone old state
-        ...state,
-        // override favorites by adding id
-        favorites: [...favorites, id],
-      };
-    });
-  };
+  //     return {
+  //       // clone old state
+  //       ...state,
+  //       // override favorites by adding id
+  //       favorites: [...favorites, id],
+  //     };
+  //   });
+  // };
 
   render() {
-    const { recipes, currentRecipe, favorites } = this.state; // get recipes from state
+    // [2]
+    // const { recipes, currentRecipe, favorites } = this.state; // get recipes from state
+    const { currentRecipe } = this.state;
+    const { state, toggleFavorite } = this.props;
+    const { recipes, favorites } = state;
 
     // px4: padding lefd and right
     return (
       <div>
         {/* <Header /> */}
         <main className="px4 flex">
-          <RecipeList
-            recipes={recipes}
-            favorites={favorites}
-            style={{ flex: 3 }}
-            onClick={this.onRecipeClick}
-            onFavorited={this.toggleFavorite}
-          />
+          <div style={{ flex: 3 }}>
+            <h2 className="h2">Recipe</h2>
+            <RecipeList
+              recipes={recipes}
+              favorites={favorites}
+              onClick={this.onRecipeClick}
+              // [2]
+              // onFavorited={this.toggleFavorite}
+              onFavorited={toggleFavorite}
+            />
+          </div>
           <RecipeDetail
             recipe={currentRecipe}
             className="ml4"
@@ -87,5 +99,10 @@ class Home extends React.Component {
     );
   }
 }
+
+Home.propTypes = {
+  state: PropTypes.object,
+  toggleFavorite: PropTypes.func,
+};
 
 export default Home;
