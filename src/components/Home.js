@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 // import Header from "./Header";
-import RecipeList from "./RecipeList";
-import RecipeDetail from "./RecipeDetail";
+import RecipeList from './RecipeList';
+import RecipeDetail from './RecipeDetail';
 
 class Home extends React.Component {
   constructor(props) {
@@ -9,29 +9,41 @@ class Home extends React.Component {
 
     this.state = {
       recipes: [],
-      currentRecipe: null
+      currentRecipe: null,
     };
 
-    //bind the onRecipeClick to this object
-    //this.onRecipeClick = this.onRecipeClick.bind(this);
+    // bind the onRecipeClick to this object
+    // this.onRecipeClick = this.onRecipeClick.bind(this);
   }
 
   componentDidMount() {
-    //API_URL config with webpack and .env
-    fetch(API_URL + "/v1/recipes")
+    // API_URL config with webpack and .env
+    fetch(`${API_URL}/v1/recipes`)
       .then(res => res.json())
       .then(json => {
         this.setState({
-          recipes: json
+          recipes: json,
         });
       });
   }
 
-  render() {
-    const { recipes, currentRecipe } = this.state; //get recipes from state
+  // using arrow function, do not need to bind
+  onRecipeClick = id => {
+    console.log(id);
+    fetch(`${API_URL}/v1/recipes/${id}`)
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          currentRecipe: json,
+        });
+      });
+  };
 
-    console.log("added git hook ...");
-    //px4: padding lefd and right
+  render() {
+    const { recipes, currentRecipe } = this.state; // get recipes from state
+
+    console.log('added git hook ...');
+    // px4: padding lefd and right
     return (
       <div>
         {/* <Header /> */}
@@ -50,18 +62,6 @@ class Home extends React.Component {
       </div>
     );
   }
-
-  //using arrow function, do not need to bind
-  onRecipeClick = id => {
-    console.log(id);
-    fetch(`${API_URL}/v1/recipes/${id}`)
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-          currentRecipe: json
-        });
-      });
-  };
 }
 
 export default Home;

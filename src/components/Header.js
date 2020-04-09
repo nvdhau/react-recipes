@@ -1,6 +1,6 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // activeClassName from react-router-dom
 
@@ -17,12 +17,12 @@ const HeaderLink = ({ children, ...props }) => (
 );
 
 HeaderLink.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 const Header = () => (
   <header className="flex items-center justify-between px4">
-    <h1 className="h1">My Recipes</h1>
+    <h1 className="h1">🍽 My Recipes</h1>
     <nav>
       <HeaderLink to="/">Home</HeaderLink>
       <HeaderLink to="/favorites">Favorites</HeaderLink>

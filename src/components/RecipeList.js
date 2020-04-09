@@ -1,17 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-//py: padding bot and top
-const RecipeList = props => (
-  <div style={props.style}>
+// py: padding bot and top
+const RecipeList = ({ style, recipes, onClick }) => (
+  <div style={style}>
     <h2 className="h2">Recipes</h2>
 
     <ul className="list-reset">
-      {props.recipes.map(recipe => (
+      {recipes.map(recipe => (
         <li
           id={recipe.id}
-          className="py2 border-bottom pointer"
-          onClick={() => props.onClick(recipe.id)}
+          className="py2 border-bottom border-bottom-dashed pointer"
+          onClick={() => onClick(recipe.id)}
         >
           <span>{recipe.name}</span>
           <span>{recipe.category}</span>
@@ -23,7 +23,8 @@ const RecipeList = props => (
 
 RecipeList.propTypes = {
   style: PropTypes.object,
-  recipe: PropTypes.object
+  recipes: PropTypes.array,
+  onClick: PropTypes.func,
 };
 
 export default RecipeList;

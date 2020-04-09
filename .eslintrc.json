@@ -1,3 +1,5 @@
+//to create: ./node_modules/.bin/eslint --init
+//disable a rule: "linebreak-style":0 
 {
     "env": {
         "browser": true,
@@ -6,7 +8,7 @@
     },
     "extends": [
         "prettier",
-        "eslint:recommended"],
+        "airbnb"],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
@@ -24,8 +26,14 @@
         "react"
     ],
     "rules": {
-        "react/jsx-uses-react": "error",   
-        "react/jsx-uses-vars":
-        "error" 
+        "arrow-parens": 0,
+        "react/jsx-filename-extension": 0,   
+        "react/require-default-props": 0,
+        "linebreak-style": 0,
+        "jsx-a11y/click-events-have-key-events": 0,
+        "react/forbid-prop-types": 0,
+        "jsx-a11y/no-noninteractive-element-interactions": 0,
+        "react/jsx-props-no-spreading": 0,
+        "object-curly-newline": 0 
     }
 }
