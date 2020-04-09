@@ -10,6 +10,7 @@ require('dotenv').config();
 // (inject style to header of html file)
 // API_URL availble to use in /src
 // exclude: /node_modules/ => Babel skips this folder
+// devServer: { historyApiFallback: true, },: fallback to index.html when URL is not defined
 module.exports = {
   context: path.join(__dirname, 'src'),
   entry: ['whatwg-fetch', './index.js'],

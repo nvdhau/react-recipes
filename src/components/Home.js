@@ -9,6 +9,7 @@ class Home extends React.Component {
 
     this.state = {
       recipes: [],
+      favorites: [],
       currentRecipe: null,
     };
 
@@ -29,7 +30,7 @@ class Home extends React.Component {
 
   // using arrow function, do not need to bind
   onRecipeClick = id => {
-    console.log(id);
+    // console.log(id);
     fetch(`${API_URL}/v1/recipes/${id}`)
       .then(res => res.json())
       .then(json => {
@@ -39,10 +40,31 @@ class Home extends React.Component {
       });
   };
 
-  render() {
-    const { recipes, currentRecipe } = this.state; // get recipes from state
+  toggleFavorite = id => {
+    this.setState(({ favorites, ...state }) => {
+      const idx = favorites.indexOf(id);
 
-    console.log('added git hook ...');
+      if (idx !== -1) {
+        return {
+          // clone old state
+          ...state,
+          // override favorites by removing id
+          favorites: favorites.filter(f => f !== id),
+        };
+      }
+
+      return {
+        // clone old state
+        ...state,
+        // override favorites by adding id
+        favorites: [...favorites, id],
+      };
+    });
+  };
+
+  render() {
+    const { recipes, currentRecipe, favorites } = this.state; // get recipes from state
+
     // px4: padding lefd and right
     return (
       <div>
@@ -50,8 +72,10 @@ class Home extends React.Component {
         <main className="px4 flex">
           <RecipeList
             recipes={recipes}
+            favorites={favorites}
             style={{ flex: 3 }}
             onClick={this.onRecipeClick}
+            onFavorited={this.toggleFavorite}
           />
           <RecipeDetail
             recipe={currentRecipe}

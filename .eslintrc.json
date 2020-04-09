@@ -1,5 +1,6 @@
-//to create: ./node_modules/.bin/eslint --init
-//disable a rule: "linebreak-style":0 
+// to create: ./node_modules/.bin/eslint --init
+// disable a rule: "linebreak-style":0
+// ["prettier", "airbnb"]: airbnb has high priority then prettier
 {
     "env": {
         "browser": true,

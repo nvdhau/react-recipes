@@ -1,4 +1,5 @@
 {
+  "_comment": "'husky' use to run pre commit (git hook) script, that is defined by 'lint-staged'",
   "name": "recipes",
   "version": "1.0.0",
   "main": "index.js",
