@@ -4,11 +4,27 @@ exports[`<Header /> Should render correctly 1`] = `
 <header
   className="flex items-center justify-between px4"
 >
-  <h1
-    className="h1"
-  >
-    🍽 My Recipes
-  </h1>
+  <div>
+    <h1
+      className="h1 inline-block mr2"
+    >
+      🍽 My Recipes
+    </h1>
+    <span
+      className="mr1"
+    >
+      by
+    </span>
+    <img
+      alt="Logo"
+      src="test-file-stub"
+      style={
+        Object {
+          "width": 30,
+        }
+      }
+    />
+  </div>
   <nav>
     <a
       aria-current="page"

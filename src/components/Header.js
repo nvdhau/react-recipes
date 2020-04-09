@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Logo from '../static/images/logo.png';
 
 // activeClassName from react-router-dom
 
@@ -26,7 +27,11 @@ HeaderLink.propTypes = {
 
 const Header = () => (
   <header className="flex items-center justify-between px4">
-    <h1 className="h1">🍽 My Recipes</h1>
+    <div>
+      <h1 className="h1 inline-block mr2">🍽 My Recipes</h1>
+      <span className="mr1">by</span>
+      <img src={Logo} alt="Logo" style={{ width: 30 }} />
+    </div>
     <nav>
       {/* Home is children "/" is props */}
       <HeaderLink to="/">Home</HeaderLink>
